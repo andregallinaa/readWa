@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read whatsapp</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div id="formInputFile" class="window">
+        <input type="file" accept=".txt" onchange="readFile(this)">
+    </div>
+
+    <div id="formChooseMit" class="window" style="display: block;">
+        <h4>Scegli chi sta mandando i messaggi</h4>
+    </div>
+
+    <div id="chatFuncCont">
+
+        <div id="chatCont" class="window">
+            <div id="headerChat">
+                <h4>Chat</h4>
+            </div>
+
+            <div id="bodyChat">
+                <!-- Messaggi -->
+            </div>
+
+        </div>
+        
+        <div class="goTo">
+            <div><p><a href="" id="startChatBtn">Vai a inizio chat</a></p></div>
+            <div><p><a href="" id="endChatBtn">Vai a fine chat</a></p></div>           
+        </div>
+
+
+        <div style="width: 100%;">
+            <div class="window" id="num">
+                <h4>Numeri:</h4>
+                <div id="mitt">
+                    <p>Mittente:</p>
+                </div>
+                <div id="nParticipants">
+                    <p>Numero di partecipanti:</p>
+                </div>
+                <div id="nMessage">
+                    <p>Messaggi totali:</p>
+                </div>
+                <div id="startChat">
+                    <p>Inizio chat:</p>
+                </div>
+                <div id="endChat">
+                    <p>Fine chat:</p>
+                </div>
+                <hr>
+                <h5>Numero di messaggi inviati da: </h5>
+
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
