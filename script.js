@@ -3,6 +3,7 @@ let colors = ["white", "aqua", "blueviolet", "burlywood", "chartreuse", "chocola
 let nMessage, nParticipants;
 
 $(document).ready(function () {
+    // $("#formInputFile").hide();
     $("#chatFuncCont").hide();
     $("#formChooseMit").hide();
 
@@ -91,7 +92,7 @@ function transformFile(file) {
 
     //Set bottoni end start chat
     document.getElementById("startChatBtn").href = "#0";
-    document.getElementById("endChatBtn").href = `#${nMessage-1}`;
+    document.getElementById("endChatBtn").href = `#${nMessage - 1}`;
 
     $("#formChooseMit").show();
 }
@@ -114,8 +115,11 @@ function printChat() {
             nome = "";
             mit = "int";
         } else { // Ext
-            if (nParticipants == 2) { nome = ""; } else
-                if (nParticipants > 2) { nome = senderList[i]; }
+            if (nParticipants == 2) {
+                nome = "";
+            } else if (nParticipants > 2) {
+                nome = senderList[i];
+            }
             mit = "ext";
         }
 
@@ -138,7 +142,6 @@ function printChat() {
     }
 
     $("#chatFuncCont").show();
-
 }
 
 
@@ -241,8 +244,12 @@ function chooseMitChange(nome) {
     printChat();
 }
 
-function printNum(){
-    let cont, div, p, nMess = [], nome = participants, n = nParticipants;
+function printNum() {
+    let cont, div, p, nMess = [], n = nParticipants, nome = [];
+
+    for(i=0; i<nParticipants; i++){
+        nome.push(participants[i]);
+    }
 
     cont = document.getElementById("mitt");
     p = document.createElement("p");
@@ -266,21 +273,20 @@ function printNum(){
 
     cont = document.getElementById("endChat");
     p = document.createElement("p");
-    p.innerHTML = day[nMessage-1];
+    p.innerHTML = day[nMessage - 1];
     cont.appendChild(p);
 
-    if(nome[0] == "Nessuno"){
-        nome[0] = nome[nParticipants-1];
+    if (nome[0] == "Nessuno") {
+        nome[0] = nome[nParticipants - 1];
         nome.pop();
         n--;
     }
 
-    for(i=0; i<n; i++){
+    for (i = 0; i < n; i++) {
         risultato = senderList.filter(elemento => elemento === nome[i])
         nMess.push(risultato.length);
     }
 
-    // Buble sort
     for (var i = 0; i < n - 1; i++) {
         for (var j = 0; j < n - i - 1; j++) {
             if (nMess[j] < nMess[j + 1]) {
@@ -295,16 +301,16 @@ function printNum(){
     }
 
     cont = document.getElementById("num");
-    
-    for(i=0; i<n; i++){
+
+    for (i = 0; i < n; i++) {
         div = document.createElement("div");
         p = document.createElement("p");
-        p.innerHTML = `${i+1})${nome[i]} (${Math.round((nMess[i]/nMessage)*100)}%)`;
+        p.innerHTML = `${i + 1})${nome[i]} (${Math.round((nMess[i] / nMessage) * 100)}%)`;
         div.appendChild(p);
         p = document.createElement("p");
         p.innerHTML = nMess[i];
         div.appendChild(p);
         cont.appendChild(div);
-    }    
+    }
 
 }
