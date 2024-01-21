@@ -46,6 +46,12 @@ a {
     margin-bottom: 0;
 }
 
+@media only screen and (max-width: 500px) {
+    #chatCont{
+        width: 90%;
+    }
+}
+
 #headerChat {
     height: 10vh;
     background-color: #333333;
