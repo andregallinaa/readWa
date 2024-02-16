@@ -66,6 +66,7 @@ a {
     padding: 3%;
     background-color: #202020;
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 
@@ -80,6 +81,7 @@ a {
     font-size: 14px;
     margin: 1% 1%;
     display: table-cell;
+    word-break: break-all;
 }
 
 /* External message */
